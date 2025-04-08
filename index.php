@@ -81,7 +81,7 @@
                 Ook voor service en onderhoud aan uw cv ketel. </p>
         </div>
         <div class="content-image">
-            <img src="src/img/man_blauw.png" alt="Description of the image" class="service-img">
+            <img src="src/img/men_blue.png" alt="Description of the image" class="service-img">
         </div>
     </section>
 
@@ -95,6 +95,13 @@
             <a href="services.php?id=6" class="round-button">Luchtbehandeling</a>
         </div>
     </div>
+
+    <section class="banner">
+        <div class="banner-content">
+            <h2>Van elektra tot sanitair – vakkundig, betrouwbaar en duurzaam!</h2>
+            <a href="contact.php" class="banner-button">Neem contact op</a>
+        </div>
+    </section>
 
 
 
