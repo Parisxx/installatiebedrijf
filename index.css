@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 /* Hero section */
@@ -37,6 +37,7 @@
     display: flex;
     justify-content: space-between; 
     align-items: center;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.2);
 }
 
 .nav-links {
@@ -60,38 +61,46 @@
     width: 200px;
 }
 
-
+/* Dropdown content */
 .dropdown-content {
     display: none;
     position: absolute;
-    top: 100%; 
+    top: 100%;
     left: 0;
     background: rgb(255, 255, 255);
     min-width: 160px;
     list-style: none;
     padding: 0;
     z-index: 1000;
-
+    border: 1px solid #ddd; 
+    border-radius: 5px;
+    box-sizing: border-box; 
 }
 
 .dropdown-content li {
     width: 100%;
+    margin: 0; 
 }
 
 .dropdown-content a {
     display: block;
-    padding: 10px;
+    padding: 10px 20px; 
     color: rgb(0, 0, 0);
     text-align: left;
     font-weight: normal;
-    font-size: 14px;   
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    box-sizing: border-box; 
+    width: 100%; 
 }
 
+.dropdown-content a:hover {
+    background-color: #f1f1f1; 
+}
 
 .dropdown:hover .dropdown-content {
     display: block;
 }
-
 
 .dropdown-arrow {
     margin-left: 5px;
@@ -109,6 +118,7 @@
     gap: 5px;
     cursor: pointer;
 }
+
 
 /* Hamburger icon */
 .hamburger {
@@ -202,6 +212,42 @@
     cursor: pointer;
 }
 
+/* Content Section */
+.content-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+}
+
+.content-text {
+    max-width: 50%;
+}
+
+.content-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #B01717;
+    margin-left: 5rem;
+}
+
+.content-text p {
+    font-size: 1rem;
+    color: #000000;
+    width: 20rem;
+    margin-left: 5rem;
+
+}
+
+.content-image img {
+    width: 100%;
+    max-width: 400px; 
+    height: auto;
+    margin-top: 3rem;
+    margin-right: 5rem;
+    
+}
+
 
 /* Media queries for mobile view */
 @media (max-width: 768px) {
@@ -220,4 +266,46 @@
     .hamburger {
         display: block;
     }
+}
+
+/* Buttons section */
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+
+}
+.button-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    grid-gap: 60px; 
+    justify-items: center; 
+}
+
+.round-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000; 
+    color: #fff; 
+    text-decoration: none; 
+    border: none;
+    border-radius: 50px;
+    width: 250px;  
+    height: 60px; 
+    padding: 5px;
+    padding: 10px; 
+    font-size: 14px; 
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    text-align: center;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3); 
+}
+
+.round-button:hover {
+    transform: scale(1.1); 
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.6); 
 }
