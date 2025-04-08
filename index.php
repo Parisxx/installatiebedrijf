@@ -147,6 +147,25 @@ $projects = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <img class="image-right" src="src/img/certficaat_2.png" alt="">
     </div>
 
+    <footer>
+        <div class="footer-row left">
+            <h3>Installatiebedrijf Stassen</h3>
+            <p>Groenenweg 42, 6294 ND Vijlen, Nederland</p>
+            <p>06 520 875 39</p>
+            <p><a href="mailto:info@stassen-installatie.nl">info@stassen-installatie.nl</a></p>
+        </div>
+        <div class="footer-row right">
+            <p>KVK: 14068934</p>
+            <p>BTW: NL001814572B39</p>
+            <p>IBAN: NL37 RABO 0116 0171 12</p>
+
+        </div>
+        <div class="footer-info">
+            <p>&copy; 2025 Installatiebedrijf Stassen</p>
+            <p><a href="privacy.php">Privacy verklaring</a></p>
+        </div>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
