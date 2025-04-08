@@ -33,7 +33,7 @@ $projects = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     </svg>
                 </a>
                 <ul class="dropdown-content">
-                <li><a href="services.php?id=1">Electro</a></li>
+                <li><a href="services.php?id=1">Elektro</a></li>
                 <li><a href="services.php?id=2">Gas</a></li>
                 <li><a href="services.php?id=3">Water</a></li>
                 <li><a href="services.php?id=4">Cv</a></li>
@@ -59,7 +59,7 @@ $projects = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     </svg>
                 </a>
                 <ul class="off-canvas-dropdown-content">
-                <li><a href="services.php?id=1">Electro</a></li>
+                <li><a href="services.php?id=1">Elektro</a></li>
                 <li><a href="services.php?id=2">Gas</a></li>
                 <li><a href="services.php?id=3">Water</a></li>
                 <li><a href="services.php?id=4">Cv</a></li>
@@ -94,7 +94,7 @@ $projects = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     <div class="wrapper">
         <div class="button-container">
-            <a href="services.php?id=1" class="round-button">Electro</a>
+            <a href="services.php?id=1" class="round-button">Elektro</a>
             <a href="services.php?id=2" class="round-button">Gas</a>
             <a href="services.php?id=3" class="round-button">Water</a>
             <a href="services.php?id=4" class="round-button">Cv</a>
