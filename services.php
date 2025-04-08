@@ -25,7 +25,6 @@ if (!$service) {
     <title>Service - <?php echo htmlspecialchars($service['title']); ?></title>
     <link rel="stylesheet" href="index.css">
     <link rel="icon" type="image/x-icon" href="src\img\icon.png">
-    <script src="script.js"></script>
 </head>
 <body>
 
@@ -91,6 +90,6 @@ if (!$service) {
         <p><?php echo nl2br(htmlspecialchars($service['description'])); ?></p>
     </div>
 
-
+    <script src="script.js"></script>
 </body>
 </html>

@@ -1,3 +1,11 @@
+<?php
+require 'db.php';
+
+$stmt = $pdo->query("SELECT * FROM projects");
+$projects = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +14,6 @@
     <title>Installatiebedrijf Stassen</title>
     <link rel="stylesheet" href="index.css">
     <link rel="icon" type="image/x-icon" href="src\img\icon.png">
-    <script src="script.js"></script>
 </head>
 <body>
 
@@ -103,7 +110,37 @@
         </div>
     </section>
 
+    <div class="projects">
+  <h2 id="projects" class="title">Onze projecten</h2>
 
+  <div class="slideshow-container">
+    <?php
+    $totalSlides = count($projects);
+    $visibleSlides = 3;
+    $slidesToClone = $visibleSlides;
+    foreach ($projects as $project): ?>
+      <div class="slide">
+        <img src="src/img/<?php echo $project['image']; ?>" alt="Project Image">
+      </div>
+    <?php endforeach; ?>
 
+    <?php for ($i = 0; $i < $slidesToClone; $i++): ?>
+      <div class="slide duplicate">
+        <img src="src/img/<?php echo $projects[$i]['image']; ?>" alt="Project Image">
+      </div>
+    <?php endfor; ?>
+
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  </div>
+
+  <div class="dots-container">
+    <?php for ($i = 0; $i < count($projects); $i++): ?>
+      <span class="dot" onclick="currentSlide(<?php echo $i; ?>)"></span>
+    <?php endfor; ?>
+  </div>
+</div>
+
+    <script src="script.js"></script>
 </body>
 </html>
