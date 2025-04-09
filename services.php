@@ -41,7 +41,7 @@ if (!$service) {
                     </svg>
                 </a>
                 <ul class="dropdown-content">
-                    <li><a href="services.php?id=1">Electro</a></li>
+                    <li><a href="services.php?id=1">Elektro</a></li>
                     <li><a href="services.php?id=2">Gas</a></li>
                     <li><a href="services.php?id=3">Water</a></li>
                     <li><a href="services.php?id=4">Cv</a></li>
@@ -67,7 +67,7 @@ if (!$service) {
                     </svg>
                 </a>
                 <ul class="off-canvas-dropdown-content">
-                    <li><a href="services.php?id=1">Electro</a></li>
+                    <li><a href="services.php?id=1">Elektro</a></li>
                     <li><a href="services.php?id=2">Gas</a></li>
                     <li><a href="services.php?id=3">Water</a></li>
                     <li><a href="services.php?id=4">Cv</a></li>
@@ -81,14 +81,37 @@ if (!$service) {
 
     <!-- Service section -->
 
-    <div class="service-container">
-        <h1> Dit is een test</h1>
-        <h1> Dit is een test</h1>
+  <br>
+  <br>
+  <br>
 
+
+    <div class="service-container">
         <h1><?php echo htmlspecialchars($service['title']); ?></h1>
         <img src="src/img/<?php echo htmlspecialchars($service['image']); ?>" alt="<?php echo htmlspecialchars($service['title']); ?>" class="service-img">
         <p><?php echo nl2br(htmlspecialchars($service['description'])); ?></p>
     </div>
+
+
+    <footer>
+        <div class="footer-row left">
+            <h3>Installatiebedrijf Stassen</h3>
+            <p>Groenenweg 42, 6294 ND Vijlen, Nederland</p>
+            <p>06 520 875 39</p>
+            <p><a href="mailto:info@stassen-installatie.nl">info@stassen-installatie.nl</a></p>
+        </div>
+        <div class="footer-row right">
+            <p>KVK: 14068934</p>
+            <p>BTW: NL001814572B39</p>
+            <p>IBAN: NL37 RABO 0116 0171 12</p>
+
+        </div>
+        <div class="footer-info">
+            <p>&copy; 2025 Installatiebedrijf Stassen</p>
+            <p><a href="privacy.php">Privacy verklaring</a></p>
+        </div>
+    </footer>
+
 
     <script src="script.js"></script>
 </body>
