@@ -8,6 +8,116 @@
     <link rel="icon" type="image/x-icon" href="src\img\icon.png">
 </head>
 <body>
+
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <img src="src\img\logo.png" alt="Logo" class="logo">
+        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+        <ul class="nav-links">
+            <li><a href="index.php">Home</a></li>
+            <li class="dropdown">
+                <a class="dropbtn">Diensten
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="dropdown-arrow">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                    </svg>
+                </a>
+                <ul class="dropdown-content">
+                    <li><a href="services.php?id=1">Elektro</a></li>
+                    <li><a href="services.php?id=2">Gas</a></li>
+                    <li><a href="services.php?id=3">Water</a></li>
+                    <li><a href="services.php?id=4">Cv</a></li>
+                    <li><a href="services.php?id=5">Sanitair</a></li>
+                    <li><a href="services.php?id=6">Luchtbehandeling</a></li>
+                </ul>
+            </li>
+            <li><a href="contact.php">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Off-canvas menu -->
+    <div class="off-canvas" id="offCanvasMenu">
+        <div class="off-canvas-header">
+            <div class="close-btn" onclick="toggleMenu()">&#10005;</div>
+        </div>
+        <ul>
+            <li><a href="index.php">Home</a></li>
+            <li class="off-canvas-dropdown" id="dienstenMenu">
+                <a class="dropbtn_off-canvas">Diensten
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="off-canvas-dropdown-arrow">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                    </svg>
+                </a>
+                <ul class="off-canvas-dropdown-content">
+                    <li><a href="services.php?id=1">Elektro</a></li>
+                    <li><a href="services.php?id=2">Gas</a></li>
+                    <li><a href="services.php?id=3">Water</a></li>
+                    <li><a href="services.php?id=4">Cv</a></li>
+                    <li><a href="services.php?id=5">Sanitair</a></li>
+                    <li><a href="services.php?id=6">Luchtbehandeling</a></li>
+                </ul>
+            </li>
+            <li><a href="contact.php">Contact</a></li>
+        </ul>
+    </div>
+
+    <br>
+    <br>
+    <br>
+
+    <!-- Banner foto -->
+
+    <div class="contact-banner">
+        <img src="src/img/banner_contact.png" alt="Contact banner">
+    </div>
+
+    <!-- Contact form -->
+
+    <div class="contact-container">
+        <h4>We horen graag van je</h4>
+        <h1>Contact opnemen</h1>
+        
+        <form action="form.php" method="POST">
+            <div class="input-row">
+                <input type="text" name="name" placeholder="Voornaam *" required>
+                <input type="text" name="lastmame" placeholder="Achternaam *" required>
+            </div>
+            <input type="email" name="email" placeholder="Email-adres *" required>
+            <input type="text" name="adress" placeholder="Adres *" required>
+            <input type="text" name="zipcode" placeholder="Postcode en woonplaats *" required>
+            <textarea name="message" placeholder="Uw reactie of bericht *" required></textarea>
+            
+            <div class="captcha">
+                <div class="g-recaptcha" data-sitekey="6LcuTxArAAAAAHqwWN9es01BmEteO7Xgm9Go_BNB"></div>
+            </div>
+            
+            <button type="submit">Verstuur informatie</button>
+        </form>
+    </div>
+
+
+    <footer>
+        <div class="footer-row left">
+            <h3>Installatiebedrijf Stassen</h3>
+            <p>Groenenweg 42, 6294 ND Vijlen, Nederland</p>
+            <p>06 520 875 39</p>
+            <p><a href="mailto:info@stassen-installatie.nl">info@stassen-installatie.nl</a></p>
+        </div>
+        <div class="footer-row right">
+            <p>KVK: 14068934</p>
+            <p>BTW: NL001814572B39</p>
+            <p>IBAN: NL37 RABO 0116 0171 12</p>
+
+        </div>
+        <div class="footer-info">
+            <p>&copy; 2025 Installatiebedrijf Stassen</p>
+            <p><a href="privacy.php">Privacy verklaring</a></p>
+        </div>
+    </footer>
+
+
+    <script src="script.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     
 </body>
 </html>
