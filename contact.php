@@ -79,8 +79,8 @@
                 <input type="text" name="lastmame" placeholder="Achternaam *" required>
             </div>
             <input type="email" name="email" placeholder="Email-adres *" required>
-            <input type="text" name="adress" placeholder="Adres *" required>
-            <input type="text" name="zipcode" placeholder="Postcode en woonplaats *" required>
+            <input type="text" name="adress" placeholder="Adres en woonplaats *" required>
+            <input type="text" name="zipcode" placeholder="Postcode *" required>
             <textarea name="message" placeholder="Uw reactie of bericht *" required></textarea>
             
             <div class="captcha">
