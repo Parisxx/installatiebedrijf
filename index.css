@@ -149,7 +149,6 @@
 .off-canvas ul {
     list-style: none;
     padding: 20px;
-    margin-top: 50px; 
 }
 
 .off-canvas li {
@@ -170,8 +169,7 @@
 .off-canvas-dropdown-content {
     display: none;
     list-style: none;
-    padding-left: 15px; 
-    margin-top: 5px; 
+    padding-left: 10px; 
 }
 
 .off-canvas-dropdown-content li {
