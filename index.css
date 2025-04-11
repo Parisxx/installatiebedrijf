@@ -482,6 +482,7 @@
     flex-wrap: wrap;
     margin-bottom: 8rem;
     margin-top: 0px;
+    flex-direction: row-reverse;
 }
 
 .service-container h1 {
