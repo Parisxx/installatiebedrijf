@@ -79,7 +79,9 @@ $projects = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
     </header>
 
-    <section class="content-section">
+    <!-- introduction section -->
+
+    <div class="content-section">
         <div class="content-text">
             <h2>Ervaren vakmanschap</h2>
             <p>Wij zijn een erkend installateur en staan voor vakmanschap, vakkundig advies en hoogwaardige producten. 
@@ -90,7 +92,9 @@ $projects = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <div class="content-image">
             <img src="src/img/men_blue.png" alt="Description of the image" class="service-img">
         </div>
-    </section>
+</div>
+
+    <!-- Service buttons -->
 
     <div class="wrapper">
         <div class="button-container">
@@ -103,12 +107,16 @@ $projects = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
     </div>
 
-    <section class="banner">
+    <!-- Contact us banner -->
+
+    <div class="banner">
         <div class="banner-content">
             <h2>Van elektra tot sanitair – vakkundig, betrouwbaar en duurzaam!</h2>
             <a href="contact.php" class="banner-button">Neem contact op</a>
         </div>
-    </section>
+</div>
+
+    <!-- project carousel -->
 
     <div class="projects">
         <h2 id="projects" class="title">Onze projecten</h2>
@@ -141,12 +149,15 @@ $projects = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
     </div>
 
+    <!-- certificates section -->
 
     <div class="image-row">
         <img class="image-left" src="src/img/certficaat_1.png" alt="">
         <img class="image-right" src="src/img/certficaat_2.png" alt="">
     </div>
 
+
+    <!-- Footer -->
     <footer>
         <div class="footer-row">
             <h3>Installatiebedrijf Stassen</h3>

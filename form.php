@@ -14,9 +14,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $zipcode = trim($_POST['zipcode']);
     $recaptcha_response = $_POST['g-recaptcha-response']; 
 
-
+    // reCAPTCHA
     $secret_key = '6LfY_hMrAAAAAGf0GREw7at2UBAEmMxe4osBUO76';
-
 
     $recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify';
     $response = file_get_contents($recaptcha_url . '?secret=' . $secret_key . '&response=' . $recaptcha_response);
@@ -27,11 +26,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $timestamp = date("Y-m-d H:i:s");
 
             try {
+                // Insert into database
                 $stmt = $pdo->prepare("INSERT INTO emails (message, timestamp) VALUES (:message, :timestamp)");
                 $stmt->bindParam(':message', $message);
                 $stmt->bindParam(':timestamp', $timestamp);
                 $stmt->execute();
 
+                // Send email
                 $mail = new PHPMailer(true);
                 $mail->isSMTP();
                 $mail->Host = 'smtp.gmail.com';

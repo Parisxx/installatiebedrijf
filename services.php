@@ -81,17 +81,13 @@ if (!$service) {
 
     <!-- Service section -->
 
-  <br>
-  <br>
-  <br>
-
-
     <div class="service-container">
         <h1><?php echo htmlspecialchars($service['title']); ?></h1>
         <img src="src/img/<?php echo htmlspecialchars($service['image']); ?>" alt="<?php echo htmlspecialchars($service['title']); ?>" class="service-img">
         <p><?php echo nl2br(htmlspecialchars($service['description'])); ?></p>
     </div>
 
+    <!-- Footer -->
 
     <footer>
         <div class="footer-row">

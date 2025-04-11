@@ -61,10 +61,6 @@
         </ul>
     </div>
 
-    <br>
-    <br>
-    <br>
-
     <!-- Banner foto -->
 
     <div class="contact-banner">
@@ -95,6 +91,7 @@
         </form>
     </div>
 
+    <!-- Footer -->
 
     <footer>
         <div class="footer-row">
