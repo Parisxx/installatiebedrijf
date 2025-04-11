@@ -469,8 +469,6 @@
   footer p, footer a {
     line-height: 1.5;
   }
-  
-
 
 
 /* services page */
@@ -582,7 +580,37 @@ button:hover {
     background-color: #B01717;
 }
 
+/* privacy verklaring */
 
+.container_privacy {
+    width: 80%;
+    max-width: 900px;
+    margin: 20px auto;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.container_privacy h1 {
+    text-align: center;
+    color: #000000;
+    margin-bottom: 2em;
+}
+
+.container_privacy p {
+    color: #040404;
+    margin-bottom: 1em;
+}
+
+.container_privacy ul {
+    margin-left: 20px;
+    margin-bottom: 1em;
+}
+
+.container_privacy h2 {
+    color: #0e0d0d;
+    margin-bottom: 0.5em;
+}
 
 
   /* Media queries for mobile view */
