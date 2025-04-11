@@ -614,14 +614,14 @@ button:hover {
 
 
   /* Media queries for mobile view */
-  @media (max-width: 768px) {
+  @media (max-width: 1000px) {
 
     /* hamburger menu */
     .navbar {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 10px; 
+        padding: 10px 10px 10px 0px;
     }
 
     .nav-links {
@@ -631,28 +631,16 @@ button:hover {
     .hamburger {
         display: block;
     }
-/* 
-    hero section */
-
-    .hero {
-        padding: 20px;
-        background-size: cover;
-        height: auto;
-    }
-    .hero-text {
-        font-size: 24px;
-        gap: 5px;
-        text-align: center;
-    }
 
     /* Content Section */
     .content-section {
         flex-direction: column;
         padding: 20px;
     }
+
     .content-text {
         max-width: 100%;
-        margin-left: 0;
+        margin-right: 35%;
     }
     .content-image img {
         max-width: 100%;
@@ -662,15 +650,17 @@ button:hover {
 
     /* Button Section */
     .button-container {
-        grid-template-columns: 1fr; 
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
         grid-gap: 20px; 
     }
-
+    
     .round-button {
         width: 100%;
         font-size: 14px;
         padding: 15px;
     }
+    
 
     /* Banner Section */
     .banner {
@@ -680,7 +670,7 @@ button:hover {
 
     /* Slideshow */
     .slideshow-container {
-        max-width: 100%;
+        max-width: 90%;
     }
     .slide {
         flex: 0 0 100%;
