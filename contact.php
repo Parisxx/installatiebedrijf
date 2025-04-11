@@ -88,7 +88,7 @@
             <textarea name="message" placeholder="Uw reactie of bericht *" required></textarea>
             
             <div class="captcha">
-                <div class="g-recaptcha" data-sitekey="6LcuTxArAAAAAHqwWN9es01BmEteO7Xgm9Go_BNB"></div>
+                <div class="g-recaptcha" data-sitekey="6LfY_hMrAAAAAJcjk_CRvbjPFkns2ZMaj3krCs4L"></div>
             </div>
             
             <button type="submit">Verstuur informatie</button>
