@@ -1,64 +1,27 @@
 <?php
-require_once 'db.php'; // zorg dat dit pad klopt
+require_once 'db.php';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = htmlspecialchars($_POST['name']);
-    $lastname = htmlspecialchars($_POST['lastname']);
-    $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
-    $adress = htmlspecialchars($_POST['adress']);
-    $zipcode = htmlspecialchars($_POST['zipcode']);
-    $message = htmlspecialchars($_POST['message']);
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $message = trim($_POST['message']);
 
-    if ($email) {
-        $to = "parisstassen@gmail.com"; 
-        $subject = "Nieuw contactbericht";
-        $body = "Voornaam: $name\nAchternaam: $lastname\nE-mail: $email\nAdres: $adress\nPostcode/Woonplaats: $zipcode\n\nBericht:\n$message";
-        $headers = "From: $email";
+    if (!empty($message)) {
+        $timestamp = date("Y-m-d H:i:s");
 
-        mail($to, $subject, $body, $headers);
+        try {
+            $stmt = $pdo->prepare("INSERT INTO emails (message, timestamp) VALUES (:message, :timestamp)");
+            $stmt->bindParam(':message', $message);
+            $stmt->bindParam(':timestamp', $timestamp);
+            $stmt->execute();
 
-        $stmt = $pdo->prepare("INSERT INTO emails (message, date) VALUES (?, NOW())");
-        $stmt->execute([$message]);
-
-        echo "Bedankt voor je bericht!";
+            echo "<script>alert('Bericht succesvol verzonden!'); window.history.back();</script>";
+        } catch (PDOException $e) {
+            echo "<script>alert('Fout bij verzenden: " . $e->getMessage() . "'); window.history.back();</script>";
+        }
     } else {
-        echo "Ongeldig e-mailadres.";
+        echo "<script>alert('Bericht mag niet leeg zijn.'); window.history.back();</script>";
     }
 } else {
-    echo "Ongeldige verzoeksmethode.";
+    echo "<script>alert('Ongeldige aanvraagmethode.'); window.history.back();</script>";
 }
 
-
-// use PHPMailer\PHPMailer\PHPMailer;
-// use PHPMailer\PHPMailer\Exception;
-
-// require 'vendor/autoload.php'; // als je Composer gebruikt
-// // of: require 'PHPMailer/PHPMailer.php'; etc. bij handmatige installatie
-
-// $mail = new PHPMailer(true);
-
-// try {
-//     // Serverinstellingen
-//     $mail->isSMTP();
-//     $mail->Host = 'smtp.gmail.com';
-//     $mail->SMTPAuth = true;
-//     $mail->Username = 'jouw@gmail.com'; // Jouw Gmail
-//     $mail->Password = 'app-wachtwoord'; // Geen gewoon wachtwoord!
-//     $mail->SMTPSecure = 'tls';
-//     $mail->Port = 587;
-
-//     // Ontvanger + afzender
-//     $mail->setFrom($email, $voornaam . ' ' . $achternaam);
-//     $mail->addAddress('jouw@gmail.com'); // Naar jezelf
-
-//     // Inhoud
-//     $mail->isHTML(false);
-//     $mail->Subject = 'Nieuw contactbericht';
-//     $mail->Body = "Voornaam: $voornaam\nAchternaam: $achternaam\nE-mail: $email\nAdres: $adres\nPostcode/Woonplaats: $postcode\n\nBericht:\n$bericht";
-
-//     $mail->send();
-//     echo "E-mail verzonden!";
-// } catch (Exception $e) {
-//     echo "Mail fout: {$mail->ErrorInfo}";
-// }
 ?>
