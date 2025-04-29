@@ -84,10 +84,18 @@ $projects = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <div class="content-section">
         <div class="content-text">
             <h2>Ervaren vakmanschap</h2>
-            <p>Wij zijn een erkend installateur en staan voor vakmanschap, vakkundig advies en hoogwaardige producten. 
-                Wij zijn een gespecialiseerd totaal installateur voor particulieren en zakelijke klanten.
-                Bij ons kunt u terecht voor alle nieuwbouw, verbouw en renovaties.
-                Ook voor service en onderhoud aan uw cv ketel. </p>
+            <p> Zoekt u een ervaren installateur voor uw woning of bedrijfspand? Installatiebedrijf Stassen biedt complete oplossingen in elektro- en installatietechniek. Van kleine aanpassingen tot volledige installaties, wij leveren vakmanschap, professioneel advies en hoogwaardige service.
+                <br>
+                Wij werken voor zowel particulieren als bedrijven, bij nieuwbouw, verbouw en renovatie. Ook voor onderhoud en service – zoals aan uw cv-ketel – bent u bij ons aan het juiste adres.
+                <br>
+                Persoonlijk contact, meedenken en kwaliteit staan bij ons voorop.
+                <br>
+                <br>
+                <strong>Benieuwd naar de mogelijkheden?</strong>
+                <br>
+                <br>
+                Neem gerust contact op voor een vrijblijvend gesprek of een offerte op maat.
+            </p>
         </div>
         <div class="content-image">
             <img src="src/img/men_blue.png" alt="Description of the image" class="service-img">

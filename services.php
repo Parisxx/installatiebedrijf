@@ -84,7 +84,7 @@ if (!$service) {
     <div class="service-container">
         <h1><?php echo htmlspecialchars($service['title']); ?></h1>
         <img src="src/img/<?php echo htmlspecialchars($service['image']); ?>" alt="<?php echo htmlspecialchars($service['title']); ?>" class="service-img">
-        <p><?php echo nl2br(htmlspecialchars($service['description'])); ?></p>
+        <p><?php echo nl2br($service['description']); ?></p>
     </div>
 
     <!-- Footer -->

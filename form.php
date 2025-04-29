@@ -8,7 +8,7 @@ use PHPMailer\PHPMailer\Exception;
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $message = htmlspecialchars(trim($_POST['message']));
     $name = htmlspecialchars(trim($_POST['name']));
-    $lastmame = htmlspecialchars(trim($_POST['lastmame']));
+    $lastname = htmlspecialchars(trim($_POST['lastname']));
     $email = htmlspecialchars(trim($_POST['email']));
     $adress = htmlspecialchars(trim($_POST['adress']));
     $zipcode = htmlspecialchars(trim($_POST['zipcode']));
@@ -41,15 +41,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 // Send email
                 $mail = new PHPMailer(true);
                 $mail->isSMTP();
-                $mail->Host = 'smtp.gmail.com';
+                $mail->Host = 'smtp.stassen-installatie.nl';
                 $mail->SMTPAuth = true;
-                $mail->Username = 'parisstassen@gmail.com';  
-                $mail->Password = 'ozpk hdst pcdq ngnf';   
+                $mail->Username = 'info@stassen-installatie.nl';  
+                $mail->Password = 'StaS1NstAl!4876#';   
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
                 $mail->Port = 587;
 
-                $mail->setFrom('parisstassen@gmail.com', 'Paris');
-                $mail->addAddress('parisstassen@gmail.com', 'Recipient');
+                $mail->setFrom('info@stassen-installatie.nl', 'Stassen Installatie');
+                $mail->addAddress('info@stassen-installatie.nl', 'Recipient');
 
                 $mail->isHTML(true);
                 $mail->Subject = 'Nieuw Contactformulier Verzoek';
@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <body>
                     <p><img src='cid:company_logo' alt='Company Logo' style='max-width: 150px;'></p>
                     
-                    <p><strong>Naam:</strong> " . htmlspecialchars($name) . " " . htmlspecialchars($lastmame) . "</p>
+                    <p><strong>Naam:</strong> " . htmlspecialchars($name) . " " . htmlspecialchars($lastname) . "</p>
                     <p><strong>Email:</strong> " . htmlspecialchars($email) . "</p>
                     <p><strong>Adres:</strong> " . htmlspecialchars($adress) . "</p>
                     <p><strong>Postcode:</strong> " . htmlspecialchars($zipcode) . "</p>
