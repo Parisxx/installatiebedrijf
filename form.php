@@ -1,7 +1,10 @@
 <?php
 // Database connection and PHPMailer setup
 require_once 'db.php';
-require 'vendor/autoload.php'; 
+require_once 'vendor/autoload.php';
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -19,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $recaptcha_response = $_POST['g-recaptcha-response']; 
 
     // Verify Google reCAPTCHA
-    $secret_key = '6LfY_hMrAAAAAGf0GREw7at2UBAEmMxe4osBUO76';
+    $secret_key = $_ENV['RECAPTCHA_SECRET'];
     $recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify';
     $response = file_get_contents($recaptcha_url . '?secret=' . $secret_key . '&response=' . $recaptcha_response);
     $response_keys = json_decode($response, true);
@@ -46,10 +49,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 // Prepare and send email
                 $mail = new PHPMailer(true);
                 $mail->isSMTP();
-                $mail->Host = 'smtp.stassen-installatie.nl';
+                $mail->Host = $_ENV['SMTP_HOST'];
                 $mail->SMTPAuth = true;
-                $mail->Username = 'info@stassen-installatie.nl';  
-                $mail->Password = 'StaS1NstAl!4876#';   
+                $mail->Username = $_ENV['SMTP_USER'];
+                $mail->Password = $_ENV['SMTP_PASS']; 
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
                 $mail->Port = 587;
 
