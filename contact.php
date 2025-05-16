@@ -73,16 +73,18 @@
         <h4>We horen graag van je</h4>
         <h1>Contact opnemen</h1>
         
+        <!-- Form sends data to form.php -->
         <form action="form.php" method="POST">
             <div class="input-row">
                 <input type="text" name="name" placeholder="Voornaam *" required>
-                <input type="text" name="lastmame" placeholder="Achternaam *" required>
+                <input type="text" name="lastname" placeholder="Achternaam *" required> 
             </div>
             <input type="email" name="email" placeholder="Email-adres *" required>
-            <input type="text" name="adress" placeholder="Adres en woonplaats *" required>
+            <input type="text" name="adress" placeholder="Adres en woonplaats *" required> 
             <input type="text" name="zipcode" placeholder="Postcode *" required>
             <textarea name="message" placeholder="Uw reactie of bericht *" required></textarea>
             
+            <!-- Google reCAPTCHA -->
             <div class="captcha">
                 <div class="g-recaptcha" data-sitekey="6LfY_hMrAAAAAJcjk_CRvbjPFkns2ZMaj3krCs4L"></div>
             </div>
@@ -90,7 +92,6 @@
             <button type="submit">Verstuur informatie</button>
         </form>
     </div>
-
     <!-- Footer -->
 
     <footer>

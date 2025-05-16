@@ -1,29 +1,34 @@
 <?php
+// Database connection and PHPMailer setup
 require_once 'db.php';
 require 'vendor/autoload.php'; 
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
+// Check if form was submitted
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
+
+    // Get and clean form data
     $message = htmlspecialchars(trim($_POST['message']));
     $name = htmlspecialchars(trim($_POST['name']));
     $lastname = htmlspecialchars(trim($_POST['lastname']));
     $email = htmlspecialchars(trim($_POST['email']));
-    $adress = htmlspecialchars(trim($_POST['adress']));
+    $address = htmlspecialchars(trim($_POST['address']));
     $zipcode = htmlspecialchars(trim($_POST['zipcode']));
     $recaptcha_response = $_POST['g-recaptcha-response']; 
 
-    // reCAPTCHA
+    // Verify Google reCAPTCHA
     $secret_key = '6LfY_hMrAAAAAGf0GREw7at2UBAEmMxe4osBUO76';
-
     $recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify';
     $response = file_get_contents($recaptcha_url . '?secret=' . $secret_key . '&response=' . $recaptcha_response);
     $response_keys = json_decode($response, true);
 
-    if ($response_keys["success"]) {
-        if (!empty($message)) {
-            // Validate email 
+    if ($response_keys["success"]) {  // If captcha OK
+
+        if (!empty($message)) {  // If message not empty
+
+            // Validate email format
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                 echo "<script>alert('Ongeldig e-mailadres.'); window.history.back();</script>";
                 exit;
@@ -32,13 +37,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $timestamp = date("Y-m-d H:i:s");
 
             try {
-                // Insert into database
+                // Save message and time in database
                 $stmt = $pdo->prepare("INSERT INTO emails (message, timestamp) VALUES (:message, :timestamp)");
                 $stmt->bindParam(':message', $message);
                 $stmt->bindParam(':timestamp', $timestamp);
                 $stmt->execute();
 
-                // Send email
+                // Prepare and send email
                 $mail = new PHPMailer(true);
                 $mail->isSMTP();
                 $mail->Host = 'smtp.stassen-installatie.nl';
@@ -54,14 +59,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $mail->isHTML(true);
                 $mail->Subject = 'Nieuw Contactformulier Verzoek';
 
-                $mail->Body    = "
+                // Email body with user's data and message
+                $mail->Body = "
                 <html>
                 <body>
                     <p><img src='cid:company_logo' alt='Company Logo' style='max-width: 150px;'></p>
                     
                     <p><strong>Naam:</strong> " . htmlspecialchars($name) . " " . htmlspecialchars($lastname) . "</p>
                     <p><strong>Email:</strong> " . htmlspecialchars($email) . "</p>
-                    <p><strong>Adres:</strong> " . htmlspecialchars($adress) . "</p>
+                    <p><strong>Adres:</strong> " . htmlspecialchars($address) . "</p>
                     <p><strong>Postcode:</strong> " . htmlspecialchars($zipcode) . "</p>
                     
                     <p><strong>Bericht:</strong></p>
@@ -70,7 +76,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 </html>
                 ";
 
-
                 $mail->AddEmbeddedImage('src/img/logo.png', 'company_logo', 'logo.png');
 
                 $mail->send();
@@ -78,18 +83,26 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 echo "<script>alert('Bericht succesvol verzonden!'); window.history.back();</script>";
 
             } catch (PDOException $e) {
+                // Database error
                 echo "<script>alert('Er is iets misgegaan. Probeer het later opnieuw.'); window.history.back();</script>";
 
             } catch (Exception $e) {
+                // Email sending error
                 echo "<script>alert('Er is iets misgegaan. Probeer het later opnieuw.'); window.history.back();</script>";
             }
+
         } else {
+            // Message empty error
             echo "<script>alert('Bericht mag niet leeg zijn.'); window.history.back();</script>";
         }
+
     } else {
+        // reCAPTCHA failed
         echo "<script>alert('reCAPTCHA verificatie mislukt. Probeer opnieuw.'); window.history.back();</script>";
     }
+
 } else {
+    // Wrong request method
     echo "<script>alert('Ongeldige aanvraagmethode.'); window.history.back();</script>";
 }
 ?>
